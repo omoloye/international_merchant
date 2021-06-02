@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <!--boostrap css-->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="./font-aw/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Candal&family=Lora&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./slick/slick.css">
+    <link rel="stylesheet" href="./slick/slick-theme.css">
+    <!--magnific-popup.css-->
+    <link rel="stylesheet" href="css/magnific-popup.css">
+    <!--custom css-->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body style="background-color: lightgrey;">
+    <!--banner-->
+    <div class="banner-2">
+        <div class="nav">
+            <div class="logo">
+                <img src="images/logo.png" alt="" class="img-fluid">
+            </div>
+            <i class="fa fa-bars" id="menu-toggle"></i>
+            <div class="nav-items">
+                <ul id="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">about</a></li>
+                    <li><a href="project.html">Project</a></li>
+                    <li><a href="service.html">Services</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+        </div>
+        <div class="center-align">
+            <h2 style="color:white; font-size: 2rem;">CONTACT</h2>
+            <div class="services-display">
+                <div>
+                    <span style="color:white; font-size: 1rem;">Home</span>
+                </div>
+                <div>
+                    <a href="" style="color:lightgrey !important; font-size: 1rem;">Contact</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="contact-section pt-5">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-image ">
+                    <div class="contact-item">
+                        <h4>Address</h4>
+                        <p>203 Ayinde giwa St. Surulere, Lagos</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h4>Let talk</h4>
+                        <p>+2348142504666</p>
+                    </div>
+
+                    <div class="contact-item">
+                        <h4>General Support</h4>
+                        <p>jerryenabulele@gmail.com</p>
+                    </div>
+
+
+                </div>
+
+                <div class="contact-form2" style="background-color: #fff;">
+                    <h3 style="text-align: center; color: black;">Send Message</h3>
+                    <form action="" class="w-75 mx-auto " id="contact-form">
+                        <div class="form-group ">
+                            <input type="text" class="form-control" placeholder="Enter your Full Name"
+                                id="contact-name">
+                            <small>error message</small>
+                        </div>
+                        <div class="form-group">
+                            <input type="Number" class="form-control" placeholder="Enter your Contact" id="conact-num">
+                            <small>error message</small>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-control" placeholder="Enter your Email" id="contact-email">
+                            <small>error message</small>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="" id="contact-message" cols="30" rows="7" placeholder="Message"
+                                class="form-control"></textarea>
+                            <small>error message</small>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="submit" value="Send Message" class="btn btn-primary btn-pink " id="submit"
+                                style="background-color:rgb(236, 127, 145) !important ; border: none;">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+    <!--jquery-->
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <!--boostrap js-->
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="./slick/slick.min.js"></script>
+    <script src="js/main.js"></script>
+    <!--magnific-popup js-->
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script>
+        // magnificPopup
+        $(document).ready(function () {
+            $('.light').magnificPopup({
+                delegate: 'a',
+                type: 'image',
+                tLoading: 'Loading image #%curr%...',
+                mainClass: 'mfp-img-mobile',
+                gallery: {
+                    enabled: true,
+                    navigateByImgClick: true,
+                    preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+                },
+
+            });
+        });
+    </script>
+
+    <script src="js/app.js"></script>
+
+
+    <script>
+        const form4 = document.getElementById('contact-form');
+        const name = document.getElementById('contact-name');
+        const email = document.getElementById('contact-email');
+        const message = document.getElementById('contact-message');
+        const num = document.getElementById('conact-num')
+        form4.addEventListener('submit', (e) => {
+            e.preventDefault();
+            checkInputs()
+        })
+
+        function checkInputs() {
+            nameValue = name.value.trim();
+            emailValue = email.value.trim();
+            messageValue = message.value.trim();
+            numValue = num.value.trim()
+
+            if (nameValue == '') {
+                setError(name, 'Name Field can not be empty!');
+            } else {
+
+                setSuccess(name);
+            }
+
+            if (emailValue == '') {
+                setError(email, 'Email Field can not be empty!');
+            } else {
+                setSuccess(email);
+            }
+
+            if (numValue == '') {
+                setError(num, 'Contact Field can not be empty!');
+            } else {
+                setSuccess(num);
+            }
+
+            if (messageValue == '') {
+                setError(message, 'Contact Field can not be empty!');
+            } else {
+                setSuccess(message);
+            }
+
+
+        }
+
+
+        function setError(input, message) {
+            const formControl = input.parentElement;
+            const small = formControl.querySelector('small');
+            small.innerText = message;
+            formControl.className = 'form-group error ';
+
+
+        }
+
+
+        function setSuccess(input) {
+            const formControl = input.parentElement;
+            formControl.className = 'form-group success';
+        }
+    </script>
+
+</body>
+
+</html>
